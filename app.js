@@ -11,6 +11,13 @@ var express	= require('express'),
 	http	= require('http'),
 	path	= require('path');
 
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'Cuprobot' // optional
+  });
+}
+
 var app = express();
 
 // all environments

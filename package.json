@@ -11,7 +11,8 @@
     "socket.io": "*",
     "underscore": "*",
     "request": "*",
-		"mongoose": "*"
+    "mongoose": "*",
+    "nodetime": "*"
   },
   "domains": [
 	"cuprobot.com",
