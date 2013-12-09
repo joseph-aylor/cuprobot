@@ -42,6 +42,7 @@ app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
 //app.get('/getri', imgurand.getri);
+app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
