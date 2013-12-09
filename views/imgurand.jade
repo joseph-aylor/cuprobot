@@ -1,0 +1,33 @@
+extends layout
+
+block title
+	|Random Imgur Images
+
+block scripts
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+	script(src='/js/imgurand.js')
+
+block content
+	h1 Random Imgur Images
+	div.row
+		div.span6
+			p This page loads random images from imgur.  Consider this page NSFW. What you will see here may be funny, impressive, shocking, or downright horrifying.  I take no responsibilty for the images that appear here.  All this page does is create random strings and display the result.
+	br
+	div.row
+		div.span12
+			span#numImages
+				| 0
+			| &nbsp;images displayed.
+	br
+	div.row
+		div.span12
+			button#start
+				|Start Getting Images
+			button#stop
+				|Stop Getting Images
+			button#clear
+				|Remove Images
+	div.row
+		div.span12#images.span12
+	br
+	br

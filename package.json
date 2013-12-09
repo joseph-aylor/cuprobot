@@ -1,0 +1,25 @@
+{
+  "name": "cuprobot",
+  "version": "0.0.1-3",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.3.1",
+    "jade": "*",
+    "socket.io": "*",
+    "underscore": "*",
+    "request": "*",
+		"mongoose": "*"
+  },
+  "domains": [
+	"cuprobot.com",
+	"www.cuprobot.com",
+	"what.cuprobot.com"
+  ],
+  "subdomain": "cuprobot",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
