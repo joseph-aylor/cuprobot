@@ -43,7 +43,7 @@ fillImages = function () {
 			var imgUrl = 'http://i.imgur.com/' + id + '.jpg';
 			tryUrl(imgUrl);
 			if(showImages){
-				setTimeout(fillImages, 3000);
+				setTimeout(fillImages, 1000);
 			}
 };
 
