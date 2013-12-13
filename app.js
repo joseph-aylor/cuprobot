@@ -8,6 +8,8 @@ var express	= require('express'),
 	user	= require('./routes/user'),
 	qr		= require('./routes/qr'),
 	imgurand= require('./routes/imgurand'),
+	todo	= require('./routes/todo'),
+	mongoose= require('mongoose'),
 	http	= require('http'),
 	path	= require('path');
 
@@ -37,12 +39,19 @@ if ('development' == app.get('env')) {
 
 console.log(app.get('env'));
 
+mongoose.connect('mongodb://crackerjack:ShitStain567@ds053658.mongolab.com:53658/heroku_app20217757');
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
-//app.get('/getri', imgurand.getri);
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
+
+app.get('/todos', todo.index);
+app.get('/todo/:id', todo.fetch);
+app.post('/todo', todo.add);
+app.put('/todo/:id', todo.update);
+app.delete('/todo/:id', todo.delete);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
