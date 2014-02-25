@@ -39,8 +39,15 @@ if ('development' == app.get('env')) {
 
 console.log(app.get('env'));
 
+/*
+ * Connection String.
+ * Should be using Environment Variables
+ */
 mongoose.connect('mongodb://crackerjack:ShitStain567@ds053658.mongolab.com:53658/heroku_app20217757');
 
+/*
+ * Toys and whatnots
+ */
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/qr', qr.index);
@@ -48,6 +55,10 @@ app.get('/imgurand', imgurand.index);
 app.get('/imgurand/', imgurand.index);
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
+
+/*
+ * Recipes Book
+ */
 app.get('/recipes', recipes.index);
 app.get('/recipe/:id', recipes.fetch);
 app.post('/recipe', recipes.add);
