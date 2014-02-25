@@ -49,12 +49,11 @@ app.get('/imgurand/', imgurand.index);
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
 app.get('/recipes', recipes.index);
-app.get('/recipes/:id', recipes.fetch);
-app.post('/recipes', recipes.add);
-app.put('/recipes/:id', recipes.update);
-app.delete('/recipes/:id', recipes.delete);
+app.get('/recipe/:id', recipes.fetch);
+app.post('/recipe', recipes.add);
+app.put('/recipe/:id', recipes.update);
+app.delete('/recipe/:id', recipes.delete);
 
-app.get('/recipes', function(req, res){ res.send("THIS IS THE RECIPE BOOK!"); });
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
