@@ -45,6 +45,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
+app.get('/imgurand/', imgurand.index);
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
 app.get('/todos', todo.index);
