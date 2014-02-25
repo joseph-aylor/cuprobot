@@ -8,7 +8,7 @@ var express	= require('express'),
 	user	= require('./routes/user'),
 	qr		= require('./routes/qr'),
 	imgurand= require('./routes/imgurand'),
-	todo	= require('./routes/todo'),
+	recipes	= require('./routes/recipes'),
 	mongoose= require('mongoose'),
 	http	= require('http'),
 	path	= require('path');
@@ -48,11 +48,13 @@ app.get('/imgurand', imgurand.index);
 app.get('/imgurand/', imgurand.index);
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
-app.get('/todos', todo.index);
-app.get('/todo/:id', todo.fetch);
-app.post('/todo', todo.add);
-app.put('/todo/:id', todo.update);
-app.delete('/todo/:id', todo.delete);
+app.get('/recipes', recipes.index);
+app.get('/recipes/:id', recipes.fetch);
+app.post('/recipes', recipes.add);
+app.put('/recipes/:id', recipes.update);
+app.delete('/recipes/:id', recipes.delete);
+
+app.get('/recipes', function(req, res){ res.send("THIS IS THE RECIPE BOOK!"); });
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
