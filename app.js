@@ -52,7 +52,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
-app.get('/imgurand/', imgurand.index);
+app.get('/imgurand/', function(req, res){res.send("wut");});//res.redirect(301, '/imgurand');});
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
 
