@@ -30,6 +30,7 @@ app.use(express.logger());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
+app.use(express.compress());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
