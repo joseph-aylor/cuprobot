@@ -44,7 +44,8 @@ console.log(app.get('env'));
  * Connection String.
  * Should be using Environment Variables
  */
-mongoose.connect('mongodb://crackerjack:ShitStain567@ds053658.mongolab.com:53658/heroku_app20217757');
+console.log(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 
 /*
  * Toys and whatnots
@@ -53,9 +54,8 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
-app.get('/imgurand/', function(req, res){res.send("wut");});//res.redirect(301, '/imgurand');});
+app.get('/imgurand/', function(req, res){res.redirect(301, '/imgurand');});
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
-app.get('/mongocheck', function (req, res){res.send(process.env.MONGOLAB_URI);});
 
 
 /*
