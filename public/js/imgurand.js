@@ -1,5 +1,8 @@
 var showImages = false;
 
+/*
+ * Creates a 7 character string that COULD be and imgur ID
+ */
 getImgurId = function () {
 		var imgurId = "";
 		var chars = "abcdefghijklmnopqrstuvwxyzABCDEFG";
@@ -11,6 +14,11 @@ getImgurId = function () {
 		return imgurId;
 };
 
+
+/*
+ * takes a url if it's valid, it adds the image to the #images div
+ * and updates the #numimages
+ */
 tryUrl = function (imgUrl){
 
 	var img = new Image();
@@ -36,6 +44,9 @@ tryUrl = function (imgUrl){
 	img.src = imgUrl;
 }
 
+/*
+ * Creates imgur urls from 7 digit strings.  Keeps doing this until showImages is set to false.
+ */
 fillImages = function () {
 			var id = getImgurId();
 			var imgUrl = 'http://i.imgur.com/' + id.substring(0,5) + '.jpg';
@@ -47,11 +58,13 @@ fillImages = function () {
 			}
 };
 
-$("#start").click(function(){ showImages=true; fillImages();});
-$("#stop").click(function(){ showImages=false;});
-$("#clear").click(function(){ 
-	$("#images").empty();
-	$("#numImages").text("0");
+$(function(){
+	$("#start").click(function(){ showImages=true; fillImages();});
+	$("#stop").click(function(){ showImages=false;});
+	$("#clear").click(function(){ 
+		$("#images").empty();
+		$("#numImages").text("0");
+	});
 });
 
 

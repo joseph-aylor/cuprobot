@@ -1,5 +1,5 @@
 
-/**
+/*
  * Module dependencies.
  */
 
@@ -13,6 +13,9 @@ var express	= require('express'),
 	http	= require('http'),
 	path	= require('path');
 
+/*
+ * Node Time Plugin
+ */
 if(process.env.NODETIME_ACCOUNT_KEY) {
   require('nodetime').profile({
     accountKey: process.env.NODETIME_ACCOUNT_KEY,
@@ -20,9 +23,14 @@ if(process.env.NODETIME_ACCOUNT_KEY) {
   });
 }
 
+/*
+ * Ladies and gentlemen we have an app.
+ */
 var app = express();
 
-// all environments
+/*
+ *all environments
+ */
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -38,20 +46,20 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-console.log(app.get('env'));
-
 /*
  * Connection String.
- * Should be using Environment Variables
+ * Using Environment Variables
  */
 console.log(process.env.MONGOLAB_URI);
 mongoose.connect(process.env.MONGOLAB_URI);
 
 /*
  * Toys and whatnots
+ *     Any games are tools will be put here.
+ *		 This is for things that don't database
+ *     Things with 'rest-like' database interactions will go below.
  */
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
 app.get('/imgurand/', function(req, res){res.redirect(301, '/imgurand');});
@@ -59,7 +67,7 @@ app.get('/envcheck', function (req, res){res.send(app.get('env'));});
 
 
 /*
- * Recipes Book
+ * Recipe Book
  */
 app.get('/recipes', recipes.index);
 app.get('/recipe/:id', recipes.fetch);
@@ -68,6 +76,9 @@ app.put('/recipe/:id', recipes.update);
 app.delete('/recipe/:id', recipes.delete);
 
 
+/*
+ * Make the server listen on app.get('port')
+ */
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
