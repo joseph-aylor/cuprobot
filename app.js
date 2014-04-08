@@ -16,7 +16,7 @@ var express	= require('express'),
 if(process.env.NODETIME_ACCOUNT_KEY) {
   require('nodetime').profile({
     accountKey: process.env.NODETIME_ACCOUNT_KEY,
-    appName: 'Cuprobot' // optional
+    appName: 'Cuprobot'
   });
 }
 
@@ -55,6 +55,7 @@ app.get('/qr', qr.index);
 app.get('/imgurand', imgurand.index);
 app.get('/imgurand/', function(req, res){res.send("wut");});//res.redirect(301, '/imgurand');});
 app.get('/envcheck', function (req, res){res.send(app.get('env'));});
+app.get('/mongocheck', function (req, res){res.send(process.env.MONGOLAB_URI);});
 
 
 /*
