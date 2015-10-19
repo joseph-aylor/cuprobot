@@ -3,15 +3,15 @@
  * Module dependencies.
  */
 
-var express	= require('express'),
-	routes	= require('./routes'),
-	user	= require('./routes/user'),
-	qr		= require('./routes/qr'),
-	imgurand= require('./routes/imgurand'),
-	recipes	= require('./routes/recipes'),
-	mongoose= require('mongoose'),
-	http	= require('http'),
-	path	= require('path');
+var express  = require('express'),
+  routes  = require('./routes'),
+  user  = require('./routes/user'),
+  qr    = require('./routes/qr'),
+  imgurand= require('./routes/imgurand'),
+  recipes  = require('./routes/recipes'),
+  mongoose= require('mongoose'),
+  http  = require('http'),
+  path  = require('path');
 
 /*
  * Node Time Plugin
@@ -51,12 +51,12 @@ if ('development' == app.get('env')) {
  * Using Environment Variables
  */
 console.log(process.env.MONGOLAB_URI);
-mongoose.connect(process.env.MONGOLAB_URI);
+// mongoose.connect(process.env.MONGOLAB_URI);
 
 /*
  * Toys and whatnots
  *     Any games are tools will be put here.
- *		 This is for things that don't database
+ *     This is for things that don't database
  *     Things with 'rest-like' database interactions will go below.
  */
 app.get('/', routes.index);
