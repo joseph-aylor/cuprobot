@@ -10,9 +10,7 @@
     "jade": "*",
     "socket.io": "*",
     "underscore": "*",
-    "request": "*",
-    "mongoose": "*",
-    "nodetime": "*"
+    "request": "*"
   },
   "domains": [
 	"cuprobot.com",

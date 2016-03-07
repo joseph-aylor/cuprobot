@@ -9,7 +9,6 @@ var express  = require('express'),
   qr    = require('./routes/qr'),
   imgurand= require('./routes/imgurand'),
   recipes  = require('./routes/recipes'),
-  mongoose= require('mongoose'),
   http  = require('http'),
   path  = require('path');
 
